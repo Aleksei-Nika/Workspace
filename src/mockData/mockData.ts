@@ -12,13 +12,21 @@ export const mockResources: Resource[] = [
         name: 'Desk A-1',
         type: 'desk',
         floor: 2,
-        features: ['Type-c монитор']
+        features: ['Type-C монитор']
     },
     {
         id: '2',
-        name: 'room Alpha',
+        name: 'Переговорная Альфа',
         type: 'room',
-        floor: 2,
-        features: ['проектор', 'интерактивная доска']
-    }
+        floor: 3,
+        features: ['Проектор', 'Маркерная доска', 'Флипчарт']
+    },
+
+    ...Array.from({length: 45}).map((_, index)=>({
+        id: `generated-${index}`,
+        name: index % 2 === 0 ? `Hot Desk B-${index}` : `Гамма-${index}`,
+        type: index % 2 === 0 ? ('desk' as const) : ('room' as const),
+        floor: (index % 3 )+ 1,
+        features: index % 3 === 0 ? ['Type-C монитор', 'Флипчарт'] : ['Флипчарт']
+    }))
 ];
