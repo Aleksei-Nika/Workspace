@@ -1,18 +1,18 @@
 import { ActionButton } from "./ActionButton";
 import { Resource } from "../mockData/mockData";
 
-interface ResourseCardProps {
+interface ResourceCardProps {
     resource: Resource;
-    onSelectResource: (id: string) => void;
+    onSelectResource: (id: string)=>void;
 }
 
-export const ResourceCard: React.FC<ResourseCardProps>=({resource, onSelectResource}) => {
+export const ResourceCard: React.FC<ResourceCardProps>=({resource, onSelectResource})=>{
     return (
         <div
             onClick={()=>onSelectResource(resource.id)}
         >
             <div>
-                <span>{resource.type==='room'?'переговорная':'Рабочее место'}</span>
+                <span>{resource.type==='room'?'Переговорная':'Рабочее место'}</span>
             </div>
             <div>
                 <div>
@@ -24,11 +24,11 @@ export const ResourceCard: React.FC<ResourseCardProps>=({resource, onSelectResou
                         ))}
                     </div>
                 </div>
-                <ActionButton 
-                    onAction={()=>onSelectResource(resource.id)}
+                <ActionButton
+                    onAction={() => onSelectResource(resource.id)}
                     label="Посмотреть расписание"
                 />
             </div>
         </div>
-    )
-}
+    );
+};
