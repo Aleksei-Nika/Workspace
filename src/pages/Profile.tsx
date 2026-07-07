@@ -1,5 +1,4 @@
-import React from "react";
-import React, {use, useContext, useState} from "react";
+import React, {useContext, useState} from "react";
 import { UserContext } from "../context/UserContext";
 
 interface BookingRecord {
@@ -30,7 +29,6 @@ export const Profile: React.FC = () => {
     };
 
     return(
-        <div>Profile</div>
         <div>
             <div>
                <div>
