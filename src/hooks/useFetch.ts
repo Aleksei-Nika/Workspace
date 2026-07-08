@@ -8,12 +8,14 @@ export function useFetch<T>(fetchFn: () => T[], dependencies: React.DependencyLi
     useEffect(() => {
         let isMounted = true;
 
-        const loadData = async () => {
+        const timer = setTimeout(() =>{
+
             try {
                 const result = fetchFn();
                 if (isMounted){
                     setData(result);
                     setLoading(false);
+                    setError(null);
                 }
             }
             catch {
@@ -22,12 +24,9 @@ export function useFetch<T>(fetchFn: () => T[], dependencies: React.DependencyLi
                     setLoading(false);
                 }
             }
-        };
-        loadData();
+        }, 800);
 
-        return () => {
-            isMounted = false;
-        };
+        return () => clearTimeout(timer);
     }, [fetchFn, ...dependencies]);
     
     return { data, loading, error };
