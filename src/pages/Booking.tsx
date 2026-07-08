@@ -45,10 +45,10 @@ export const Booking: React.FC = () => {
         }
 
     return(
-        <div>
+        <div className="conteiner">
             <div>
                 <h1>Рабочее пространство</h1>
-                <button onClick={ () => setShoulCrash(true)}></button>
+                <button onClick={ () => setShoulCrash(true)}>Тест</button>
             </div>
             <BookingFilters filters={filters} setFilters={setFilters} />
             {error && (<div>{error}</div>)}

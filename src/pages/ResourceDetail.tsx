@@ -58,7 +58,7 @@ export const ResourceDetail: React.FC = () => {
         }
     };
     return(
-       <div>
+       <div className="conteiner">
         <div>
             <button onClick={()=>navigate('/booking')}>
                  Назад к каталогу
